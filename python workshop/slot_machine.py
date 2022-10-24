@@ -1,21 +1,18 @@
 from random import choices
 
 class Slot:
-    results = ['', '', '']
+    results = []
 
     def __init__(self):
         self.roll()
 
     def __str__(self):
-        return f"| {self.results[0]} | {self.results[1]} | {self.results[2]} |"
+       return f"| {self.results[0]} | {self.results[1]} | {self.results[2]} |"
     
     def roll(self):
-        self.results = ['', '', '']
         symbols = ['*', 'F', '<', '#', '&', '=', '$']
         chances = [50/156, 40/156, 30/156, 20/156, 10/156, 5/156, 1/156]
-        for i in range(0,3):
-            result = choices(symbols, chances)
-            self.results[i] += str(result[0])
+        self.results = choices(symbols, chances, k = 3)
 
     def lucky_roll(self):
         if self.results[0] == self.results[1] == self.results[2]:
