@@ -56,12 +56,14 @@ class User:
         return multiplier[x]
 
 def game():
+    print("Welcome to the Slot Machine!")
     money = int(input('How many credits do you wish to deposit?\n'))
     user = User(money)
     while money > 0:
+        print(user)
         continue_game = input('Do you wish to stop playing? Answer "Yes" to stop.\n')
         if continue_game != 'Yes':
-            creds = int(input('How many credits do you want to spend this round?\n'))
+            creds = int(input('How many credits do you want to spend this round? Be sure to enter an integer!\n'))
             if user.enough_money(creds):
                 slot = Slot()
                 print(slot)
